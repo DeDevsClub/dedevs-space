@@ -6,8 +6,8 @@
   "author": "DeDevs",
   "license": "MIT",
   "scripts": {
-    "bdev": "next build && next dev --turbopack",
-    "dev": "next dev --turbopack",
+    "bdev": "next build && PORT=3003 next dev --turbopack",
+    "dev": "PORT=3003 next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
