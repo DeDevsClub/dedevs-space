@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react"
+import developers from "@/data/developers.json";
 
 export interface SocialLink {
   id: string
@@ -318,3 +319,5 @@ export interface ClientProfile {
     pushed_at: string
     topics: string[]
   }
+
+export type Portfolio = (typeof developers)[number];

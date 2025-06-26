@@ -10,15 +10,15 @@ import {
   Users,
   Globe,
   Mail,
-  Linkedin,
   List,
   LayoutGrid,
+  Linkedin,
 } from "lucide-react";
 import developers from "@/data/developers.json";
 import clsx from "clsx";
-import Image from "next/image";
-
-type Portfolio = (typeof developers)[number];
+import { ProfileCard } from "@/components/cards/profile-card";
+import type { Portfolio } from "@/lib/types";
+import { useRouter } from "next/navigation";
 
 const SKILL_OPTIONS = Array.from(
   new Set(
@@ -272,69 +272,18 @@ export default function PortfoliosPage() {
 function PortfolioCard({ dev }: { dev: Portfolio }) {
   const [showMore, setShowMore] = useState(false);
   const avatarUrl = dev?.avatarUrl?.startsWith("http") ? dev.avatarUrl : "/placeholders/user.png";
+  const router = useRouter();
 
   return (
     <div
-      className="group bg-card/80 rounded-2xl shadow-lg p-6 flex flex-col gap-4 items-center text-center border border-transparent hover:border-primary/40 hover:shadow-2xl transition-all duration-200 cursor-pointer hover:scale-105 relative"
+      className="group bg-card/80 rounded-2xl shadow-lg px-2 py-2 flex flex-col gap-4 items-center text-center hover:shadow-blue-800 dark:hover:shadow-blue-900 transition-all duration-200 cursor-pointer hover:scale-105 relative"
       onMouseEnter={() => setShowMore(true)}
       onMouseLeave={() => setShowMore(false)}
-      onClick={() => setShowMore((v) => !v)}
+      // onClick={() => setShowMore((v) => !v)}
+      onClick={() => router.push(`/profile/${dev.username}`)}
     >
-      <div className="relative">
-        <Image
-          src={avatarUrl}
-          alt={dev.name}
-          width={80}
-          height={80}
-          className="w-20 h-20 rounded-full border-4 border-indigo-300 group-hover:border-primary shadow-lg transition-all"
-        />
-        <span className="absolute -bottom-2 right-0 bg-primary text-neutral-950 text-xs rounded-full px-2 py-0.5 shadow">
-          {dev.username}
-        </span>
-      </div>
-      <div>
-        <h3 className="font-bold text-lg">{dev.name}</h3>
-        <p className="text-muted-foreground text-sm">{dev.tagline}</p>
-        <p className="text-xs text-muted-foreground">
-          {dev.jobTitle} {dev.company && <>@ {dev.company}</>}
-        </p>
-      </div>
-      <div className="flex flex-wrap gap-1 justify-center">
-        {dev.skills?.slice(0, 3).map((s: any) => (
-          <Badge key={s.id} variant="secondary" className="text-xs px-2 py-0.5">
-            {s.name}
-          </Badge>
-        ))}
-        {dev.skills?.length > 3 && (
-          <Badge variant="outline" className="text-xs px-2 py-0.5">
-            +{dev.skills.length - 3} more
-          </Badge>
-        )}
-      </div>
-      <div className="flex gap-2 justify-center mt-2">
-        {dev.socialLinks?.map((link: any) => (
-          <a
-            key={link.platform}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-primary transition-colors"
-            title={link.platform}
-          >
-            {getSocialIcon(link.platform)}
-          </a>
-        ))}
-        {dev.email && (
-          <a
-            href={`mailto:${dev.email}`}
-            title="Contact"
-            className="hover:text-primary transition-colors"
-          >
-            <Mail className="h-5 w-5" />
-          </a>
-        )}
-      </div>
-      {showMore && (
+      <ProfileCard {...dev} />
+      {/* {showMore && (
         <div className="absolute z-10 left-0 right-0 top-full mt-1 bg-background/90 rounded-xl shadow-xl p-4 text-left text-sm">
           <div className="mb-2 font-semibold">Bio:</div>
           <div className="mb-2">{dev.bio}</div>
@@ -347,15 +296,15 @@ function PortfolioCard({ dev }: { dev: Portfolio }) {
             {dev.location || "N/A"}
           </div>
         </div>
-      )}
-      <Button
+      )} */}
+      {/* <Button
         size="sm"
         variant="outline"
         className="mt-3 group-hover:bg-primary group-hover:text-neutral-950 transition-all"
         asChild
       >
         <a href={`/profile/${dev.username}`}>Portfolio</a>
-      </Button>
+      </Button> */}
     </div>
   );
 }
