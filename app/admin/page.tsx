@@ -17,7 +17,7 @@ export default function AdminDashboardPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
-                Welcome back, Alex!
+                Welcome back, Dev
                 <Sparkles className="h-8 w-8 text-primary animate-pulse" />
               </h1>
               <p className="text-muted-foreground mt-2">

@@ -8,7 +8,7 @@ interface ProfilePageProps {
 }
 
 export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
-  const profile = getMockSharingProfile(params.username)
+  const profile = await getMockSharingProfile(params?.username)
 
   if (!profile) {
     return {
@@ -35,8 +35,8 @@ export async function generateMetadata({ params }: ProfilePageProps): Promise<Me
   }
 }
 
-export default function ProfilePage({ params }: ProfilePageProps) {
-  const profile = getMockSharingProfile(params.username)
+export default async function ProfilePage({ params }: ProfilePageProps) {
+  const profile = await getMockSharingProfile(params.username)
 
   if (!profile) {
     notFound()

@@ -202,7 +202,7 @@ export interface ClientProfile {
   export interface Skill {
     id: string
     name: string
-    category: "Blockchain" | "AI" | "General" | "Tooling"
+    category: "Blockchain" | "AI" | "General" | "Tooling" | "Web Development"
     proficiency: "Beginner" | "Intermediate" | "Advanced" | "Expert"
   }
   

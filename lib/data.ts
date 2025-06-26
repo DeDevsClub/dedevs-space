@@ -10,16 +10,16 @@ export const mockDeveloperProfile: DeveloperProfile = {
   tagline: "Building the Future with Code & Intelligence",
   email: "buns@dedevs.club",
   skills: [
-    { id: "s1", name: "Solidity", icon: Code, level: "Expert" },
-    { id: "s2", name: "Ethereum", icon: Code, level: "Expert" },
-    { id: "s3", name: "Hardhat", icon: Code, level: "Advanced" },
-    { id: "s4", name: "Python", icon: Code, level: "Expert" },
-    { id: "s5", name: "TensorFlow", icon: Brain, level: "Advanced" },
-    { id: "s6", name: "PyTorch", icon: Brain, level: "Advanced" },
-    { id: "s7", name: "Next.js", icon: Code, level: "Intermediate" },
-    { id: "s8", name: "Node.js", icon: Code, level: "Advanced" },
-    { id: "s9", name: "IPFS", icon: Code, level: "Intermediate" },
-    { id: "s10", name: "Machine Learning", icon: Brain, level: "Advanced" },
+    { id: "s1", name: "Solidity", icon: Code, level: "Expert", category: "Blockchain", proficiency: "Advanced" },
+    { id: "s2", name: "Ethereum", icon: Code, level: "Expert", category: "Blockchain", proficiency: "Advanced" },
+    { id: "s3", name: "Hardhat", icon: Code, level: "Advanced", category: "Blockchain", proficiency: "Advanced" },
+    { id: "s4", name: "Python", icon: Code, level: "Expert", category: "AI", proficiency: "Advanced" },
+    { id: "s5", name: "TensorFlow", icon: Brain, level: "Advanced", category: "AI", proficiency: "Advanced" },
+    { id: "s6", name: "PyTorch", icon: Brain, level: "Advanced", category: "AI", proficiency: "Advanced" },
+    { id: "s7", name: "Next.js", icon: Code, level: "Intermediate", category: "Web Development", proficiency: "Intermediate" },
+    { id: "s8", name: "Node.js", icon: Code, level: "Advanced", category: "Web Development", proficiency: "Advanced" },
+    { id: "s9", name: "IPFS", icon: Code, level: "Intermediate", category: "Web Development", proficiency: "Intermediate" },
+    { id: "s10", name: "Machine Learning", icon: Brain, level: "Advanced", category: "AI", proficiency: "Advanced" },
   ],
   experience: [
     {
@@ -86,6 +86,7 @@ export const mockDeveloperProfile: DeveloperProfile = {
       url: "#", // Placeholder
       platform: "Medium",
       publishDate: "Mar 2023",
+      date: "Mar 2023",
     },
     {
       id: "a2",
@@ -93,6 +94,7 @@ export const mockDeveloperProfile: DeveloperProfile = {
       url: "#", // Placeholder
       platform: "Dev.to",
       publishDate: "Jan 2023",
+      date: "Jan 2023",
     },
   ],
   youtubeVideos: [
@@ -102,6 +104,7 @@ export const mockDeveloperProfile: DeveloperProfile = {
       videoId: "dQw4w9WgXcQ", // Placeholder (Rick Astley)
       thumbnailUrl: "/placeholder.svg?width=320&height=180",
       uploadDate: "Oct 2022",
+      embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     },
     {
       id: "yt2",
@@ -109,13 +112,14 @@ export const mockDeveloperProfile: DeveloperProfile = {
       videoId: "oHg5SJYRHA0", // Placeholder (Another one)
       thumbnailUrl: "/placeholder.svg?width=320&height=180",
       uploadDate: "Sep 2022",
+      embedUrl: "https://www.youtube.com/embed/oHg5SJYRHA0",
     },
   ],
   socialLinks: [
     { id: "sl1", platform: "GitHub", url: "https://github.com/bunsdev", icon: Github },
-    { id: "sl2", platform: "LinkedIn", url: "#", icon: Linkedin },
-    { id: "sl3", platform: "Twitter", url: "#", icon: Twitter },
-    { id: "sl4", platform: "YouTube", url: "#", icon: Youtube },
+    { id: "sl2", platform: "LinkedIn", url: "https://linkedin.com/in/bunsdev", icon: Linkedin },
+    { id: "sl3", platform: "Twitter", url: "https://x.com/bunsdev", icon: Twitter },
+    { id: "sl4", platform: "YouTube", url: "https://www.youtube.com/@0xbuns", icon: Youtube },
   ],
   customCSS: `
     /* Example: .hero-section { background-color: #f0f8ff; } */

@@ -163,8 +163,8 @@ export function getMockSharingProfile(userId: string): SharingProfile {
   return {
     id: `profile-${userId}`,
     userId,
-    username: "alex-dev",
-    displayName: "Alex Johnson",
+    username: "bunsdev",
+    displayName: "B. Enchantress",
     bio: "Full-stack developer passionate about blockchain and AI. Always learning, always building! 🚀",
     avatarUrl: "/placeholder.svg?width=200&height=200",
     bannerUrl: "/placeholder.svg?width=800&height=200",
@@ -214,11 +214,11 @@ export function getMockSharingProfile(userId: string): SharingProfile {
       },
     ],
     socialLinks: [
-      { id: "sl1", platform: "GitHub", url: "https://github.com/alex-dev" },
-      { id: "sl2", platform: "LinkedIn", url: "https://linkedin.com/in/alex-dev" },
-      { id: "sl3", platform: "Twitter", url: "https://twitter.com/alex_dev" },
+      { id: "sl1", platform: "GitHub", url: "https://github.com/bunsdev" },
+      { id: "sl2", platform: "LinkedIn", url: "https://linkedin.com/in/buns" },
+      { id: "sl3", platform: "Twitter", url: "https://twitter.com/bunsdev" },
     ],
-    createdAt: new Date("2023-09-01"),
-    updatedAt: new Date("2024-01-15"),
+    createdAt: new Date("2025-06-25"),
+    updatedAt: new Date("2025-06-25"),
   }
 }

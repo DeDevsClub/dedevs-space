@@ -14,8 +14,9 @@ async function fetchDeveloperProfile(username: string): Promise<DeveloperProfile
   return getDeveloperProfileByUsername(username)
 }
 
-export async function generateMetadata({ params }: DeveloperPageProps): Promise<Metadata> {
-  const profile = await fetchDeveloperProfile(params.username)
+export async function generateMetadata({ params }: { params: Promise<{ username: string }> }): Promise<Metadata> {
+  const { username } = await params
+  const profile = await fetchDeveloperProfile(username)
   if (!profile) {
     return {
       title: "Profile Not Found",
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: DeveloperPageProps): Promise<
 
 export async function generateStaticParams() {
   // In a real app, fetch this list from your database
-  const developers = [{ username: "alex-dev" } /* ...other developers */]
+  const developers = [{ username: "bunsdev" } /* ...other developers */]
   return developers.map((dev) => ({
     username: dev.username,
   }))
