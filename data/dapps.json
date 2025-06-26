@@ -1,0 +1,10 @@
+{
+    "dapps": [
+        {
+            "slug": "dedevs-space",
+            "title": "DeDevs Space",
+            "url": "https://dedevs.space",
+            "description": "DeDevs Space"
+        }
+    ]
+}

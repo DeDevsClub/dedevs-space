@@ -318,4 +318,3 @@ export interface ClientProfile {
     pushed_at: string
     topics: string[]
   }
-  
