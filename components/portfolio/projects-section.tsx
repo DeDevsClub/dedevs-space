@@ -1,38 +1,45 @@
-import type { Project } from "@/lib/types"
-import Image from "next/image"
+"use client"
+
+import useSWR from "swr"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Github, Star, GitFork } from "lucide-react"
+import type { GitHubRepo } from "@/lib/types"
+
+const fetcher = (url: string) => fetch(url).then(res => res.json())
 
 interface ProjectsSectionProps {
-  projects: Project[]
+  username: string
 }
 
-export default function ProjectsSection({ projects }: ProjectsSectionProps) {
-  if (!projects || projects.length === 0) return null
+export default function ProjectsSection({ username }: ProjectsSectionProps) {
+  const { data, error, isLoading } = useSWR<{ repos: GitHubRepo[] }>(
+    `/api/github/${username}`,
+    fetcher
+  )
 
-  // For now, we use mock projects. In a real app, this would fetch from GitHub API.
-  // const { data: githubProjects, error } = useSWR('/api/github/alex-dev', fetcher);
+  if (isLoading) {
+    return <div className="text-center py-12">Loading projects…</div>
+  }
+
+  if (error || !data) {
+    return <div className="text-center py-12 text-red-500">Failed to load projects.</div>
+  }
+
+  const projects = data.repos
+
+  if (!projects || projects.length === 0) {
+    return <div className="text-center py-12 text-muted-foreground">No projects found.</div>
+  }
 
   return (
     <section className="py-12 md:py-16 projects-section">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-10 text-foreground">Featured Projects</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {projects.map((project) => (
+          {projects.map((project: GitHubRepo) => (
             <Card key={project.id} className="flex flex-col hover:shadow-xl transition-shadow">
-              {project.imageUrl && (
-                <div className="relative w-full h-48">
-                  <Image
-                    src={project.imageUrl || "/placeholder.svg"}
-                    alt={project.name}
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-t-lg"
-                  />
-                </div>
-              )}
               <CardHeader>
                 <CardTitle className="text-xl font-semibold">{project.name}</CardTitle>
                 <CardDescription className="text-sm h-20 overflow-hidden text-ellipsis">
@@ -42,15 +49,11 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
               <CardContent className="flex-grow">
                 {project.topics && project.topics.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-3">
-                    {project.topics.slice(0, 4).map(
-                      (
-                        topic, // Show max 4 topics
-                      ) => (
-                        <Badge key={topic} variant="secondary">
-                          {topic}
-                        </Badge>
-                      ),
-                    )}
+                    {project.topics.slice(0, 4).map(topic => (
+                      <Badge key={topic} variant="secondary">
+                        {topic}
+                      </Badge>
+                    ))}
                   </div>
                 )}
                 <div className="flex items-center space-x-4 text-sm text-muted-foreground">

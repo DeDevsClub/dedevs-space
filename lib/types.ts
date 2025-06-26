@@ -190,3 +190,132 @@ export interface ClientProfile {
     loginAlertsEnabled: true,
   };
   
+  export interface SocialLinks {
+    github?: string
+    linkedin?: string
+    twitter?: string
+    youtube?: string
+    personalWebsite?: string
+    phone?: string
+  }
+  
+  export interface Skill {
+    id: string
+    name: string
+    category: "Blockchain" | "AI" | "General" | "Tooling"
+    proficiency: "Beginner" | "Intermediate" | "Advanced" | "Expert"
+  }
+  
+  export interface WorkExperience {
+    id: string
+    jobTitle: string
+    company: string
+    startDate: string
+    endDate?: string
+    description: string
+    isCurrent?: boolean
+    location?: string
+  }
+  
+  export interface Education {
+    id: string
+    degree: string
+    institution: string
+    startDate: string
+    endDate?: string
+    description?: string
+    gpa?: string
+    isCurrent?: boolean
+  }
+  
+  export interface PortfolioItem {
+    id: string
+    title: string
+    description: string
+    projectUrl?: string
+    imageUrl?: string
+    category: "Project" | "Article" | "Video" | "Other"
+    technologies: string[]
+    featured: boolean
+    createdAt: string
+  }
+  
+  export interface BlogPost {
+    id: string
+    title: string
+    content: string
+    excerpt: string
+    featuredImage?: string
+    published: boolean
+    publishedAt?: string
+    createdAt: string
+    updatedAt: string
+    tags: string[]
+  }
+  
+  export interface GitHubSettings {
+    connected: boolean
+    username?: string
+    showContributions: boolean
+    showRepositories: boolean
+    selectedRepos: string[]
+    showStats: boolean
+  }
+  
+  export interface ThemeSettings {
+    primaryColor: string
+    secondaryColor: string
+    theme: "light" | "dark" | "system"
+    customCSS?: string
+    customJS?: string
+  }
+  
+  export interface Article {
+    id: string
+    title: string
+    url: string
+    publication?: string
+    date: string
+    description?: string
+  }
+  
+  export interface YouTubeVideo {
+    id: string
+    title: string
+    embedUrl: string
+    description?: string
+  }
+  
+  // export interface DeveloperProfile {
+  //   username: string
+  //   fullName: string
+  //   tagline: string
+  //   bio: string
+  //   email: string
+  //   profilePictureUrl?: string
+  //   skills: Skill[]
+  //   workExperience: WorkExperience[]
+  //   education: Education[]
+  //   portfolioItems: PortfolioItem[]
+  //   blogPosts: BlogPost[]
+  //   articles: Article[]
+  //   youtubeVideos: YouTubeVideo[]
+  //   socialLinks: SocialLinks
+  //   githubUsername: string
+  //   githubSettings: GitHubSettings
+  //   themeSettings: ThemeSettings
+  //   customStyles?: string
+  // }
+  
+  export interface GitHubRepo {
+    id: number
+    name: string
+    html_url: string
+    description: string | null
+    stargazers_count: number
+    forks_count: number
+    language: string | null
+    pushed_at: string
+    topics: string[]
+  }
+  

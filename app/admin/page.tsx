@@ -35,7 +35,7 @@ export default function AdminDashboardPage() {
           </div>
           <div className="flex gap-3 mt-4">
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href="/alex-dev" target="_blank">
+              <Link href="/bunsdev" target="_blank">
                 <Rocket className="mr-2 h-4 w-4" />
                 View Profile
               </Link>

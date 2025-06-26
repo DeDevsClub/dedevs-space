@@ -3,9 +3,9 @@ import { getDeveloperProfileByUsername } from "@/lib/data" // Using mock for now
 import type { DeveloperProfile } from "@/lib/types"
 import type { Metadata } from "next"
 
-interface DeveloperPageProps {
-  params: { username: string }
-}
+// interface DeveloperPageProps {
+//   params: { username: string }
+// }
 
 // This function would fetch data from your DB or CMS in a real app
 async function fetchDeveloperProfile(username: string): Promise<DeveloperProfile | null> {
@@ -14,8 +14,8 @@ async function fetchDeveloperProfile(username: string): Promise<DeveloperProfile
   return getDeveloperProfileByUsername(username)
 }
 
-export async function generateMetadata({ params }: DeveloperPageProps): Promise<Metadata> {
-  const profile = await fetchDeveloperProfile(params.username)
+export async function generateMetadata({ params }: { params: { username: string } }): Promise<Metadata> {
+  const profile = await fetchDeveloperProfile((params).username)
   if (!profile) {
     return {
       title: "Profile Not Found",
@@ -42,6 +42,6 @@ export async function generateStaticParams() {
   }))
 }
 
-export default function DeveloperPage({ params }: DeveloperPageProps) {
+export default function DeveloperPage({ params }: { params: { username: string } }) {
   return <DeveloperPageClient params={params} />
 }

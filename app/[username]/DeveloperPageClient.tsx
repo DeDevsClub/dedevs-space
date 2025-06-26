@@ -65,7 +65,7 @@ export default function DeveloperPageClient({ params }: DeveloperPageProps) {
       />
       <SkillsSection skills={profile.skills} />
       <ExperienceSection experience={profile.experience} />
-      <ProjectsSection projects={profile.projects} />
+      <ProjectsSection username={profile.username} />
       <ArticlesSection articles={profile.articles} />
       <YouTubeSection videos={profile.youtubeVideos} />
       {/* Add other sections as needed */}
