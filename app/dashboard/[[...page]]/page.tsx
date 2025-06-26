@@ -1,29 +1,12 @@
-import { DashboardSidebar } from "@/components/navigation/siderbar/dashboard-sidebar"
 import { ChartAreaInteractive } from "@/components/charts/chart-area-interactive"
 import { DataTable } from "@/components/tables/data-table"
 import { SectionCards } from "@/components/cards/section-cards"
-import {
-  SidebarInset,
-  SidebarProvider,
-} from "@/components/ui/sidebar"
 import data from "@/data/dashboard.json"
-import { SiteHeader } from "@/components/navigation/site-header"
 
 export default function Page() {
     
   return (
-    <SidebarProvider
-      style={
-        {
-          "--sidebar-width": "calc(var(--spacing) * 72)",
-          "--header-height": "calc(var(--spacing) * 12)",
-        } as React.CSSProperties
-      }
-    >
-      <DashboardSidebar />
-      <SidebarInset>
-        <SiteHeader />
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col w-full h-full mx-auto">
           <div className="@container/main flex flex-1 flex-col gap-2">
             <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
               <SectionCards />
@@ -34,7 +17,5 @@ export default function Page() {
             </div>
           </div>
         </div>
-      </SidebarInset>
-    </SidebarProvider>
   )
 }
