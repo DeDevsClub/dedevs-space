@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import SharingProfile from "@/components/sharing/sharing-profile"
 import { getMockSharingProfile } from "@/lib/sharing"
 import type { Metadata } from "next"
+import { SiteHeader } from "@/components/navigation/site-header"
 
 interface ProfilePageProps {
   params: { username: string }
@@ -43,8 +44,9 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto py-8">
+    <div className="min-h-screen min-w-screen bg-background">
+      <div className="container mx-auto py-6 w-full">
+        <SiteHeader />
         <SharingProfile profile={profile} />
       </div>
     </div>

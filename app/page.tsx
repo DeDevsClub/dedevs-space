@@ -8,7 +8,7 @@ import Link from "next/link"
 
 export default function Page() {
   return (
-    <div className="flex w-full min-h-screen flex-col bg-gradient-to-tr from-indigo-950 via-background to-blue-900">
+    <div className="flex w-full min-w-screen min-h-screen flex-col bg-gradient-to-tr from-indigo-950 via-background to-blue-900">
       <SiteHeader />
       <div className="flex flex-1">
         <Sidebar />
