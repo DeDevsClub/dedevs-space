@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { UserCircle, PanelLeftClose, PanelLeftOpen, ExternalLink } from "lucide-react"
+import { Code2Icon, PanelLeftClose, PanelLeftOpen, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
@@ -34,11 +34,11 @@ export default function ComprehensiveSidebar({ className, onItemClick }: Compreh
         )}
       >
         {/* Header */}
-        <div className="flex h-14 items-center justify-between px-3 lg:h-[60px]">
+        <div className="flex h-14 items-center justify-between px-3 lg:h-[60px] bg-muted">
           {!isCollapsed && (
-            <Link href="/admin/dashboard" className="flex items-center gap-2 font-semibold">
-              <UserCircle className="h-6 w-6 text-primary" />
-              <span>Admin Panel</span>
+            <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
+              <Code2Icon className="h-6 w-6 text-primary" />
+              <span>DeDevs Space</span>
             </Link>
           )}
           <Button
@@ -76,16 +76,16 @@ export default function ComprehensiveSidebar({ className, onItemClick }: Compreh
           {!isCollapsed ? (
             <div className="space-y-2">
               <Button variant="outline" size="sm" className="w-full justify-start gap-2" asChild>
-                <Link href="/alex-dev" target="_blank">
+                <Link href="/profile/bunsdev" target="_blank">
                   <ExternalLink className="h-4 w-4" />
                     Profile
                 </Link>
               </Button>
-              <div className="text-xs text-muted-foreground text-center">DevFolio Admin v1.0</div>
+              <div className="text-xs text-muted-foreground text-center">DeDevs Space v1.0</div>
             </div>
           ) : (
             <Button variant="outline" size="icon" className="w-full" asChild>
-              <Link href="/alex-dev" target="_blank">
+              <Link href="/profile/bunsdev" target="_blank">
                 <ExternalLink className="h-4 w-4" />
               </Link>
             </Button>

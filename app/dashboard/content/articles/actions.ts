@@ -7,7 +7,7 @@ export async function saveArticles(payload: { articles: Article[] }) {
   console.log("✅  [server] saving articles...", payload)
 
   // e.g. await db.updateUserArticles(userId, payload.articles)
-  // revalidatePath(`/admin/dashboard/content/articles`)
+  // revalidatePath(`/dashboard/content/articles`)
 
   return { success: true }
 }

@@ -22,35 +22,35 @@ const quickActions: QuickAction[] = [
     id: "add-skill",
     label: "Add Skill",
     icon: Zap,
-    href: "/admin/dashboard/skills",
+    href: "/dashboard/skills",
     color: "bg-yellow-500 hover:bg-yellow-600",
   },
   {
     id: "add-experience",
     label: "Add Experience",
     icon: User,
-    href: "/admin/dashboard/experience",
+    href: "/dashboard/experience",
     color: "bg-blue-500 hover:bg-blue-600",
   },
   {
     id: "add-project",
     label: "Add Project",
     icon: Code,
-    href: "/admin/dashboard/projects",
+    href: "/dashboard/projects",
     color: "bg-green-500 hover:bg-green-600",
   },
   {
     id: "add-article",
     label: "Add Article",
     icon: FileText,
-    href: "/admin/dashboard/content/articles",
+    href: "/dashboard/content/articles",
     color: "bg-purple-500 hover:bg-purple-600",
   },
   {
     id: "add-video",
     label: "Add Video",
     icon: Youtube,
-    href: "/admin/dashboard/content/youtube",
+    href: "/dashboard/content/youtube",
     color: "bg-red-500 hover:bg-red-600",
   },
 ]
@@ -105,7 +105,7 @@ export default function FloatingActionButton() {
               size="icon"
               className={cn(
                 "h-14 w-14 rounded-full shadow-lg transition-all duration-300",
-                "bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90",
+                "bg-neutral-800 dark:bg-neutral-400 hover:from-primary/90 hover:to-secondary/90",
                 "transform hover:scale-110 hover:shadow-xl hover:shadow-primary/25",
                 isOpen && "rotate-45",
               )}

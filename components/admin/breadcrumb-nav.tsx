@@ -26,7 +26,7 @@ export default function BreadcrumbNav() {
     // Always start with Dashboard
     breadcrumbs.push({
       title: "Dashboard",
-      href: "/admin/dashboard",
+      href: "/dashboard",
       icon: Home,
     })
 
@@ -36,7 +36,7 @@ export default function BreadcrumbNav() {
       currentPath += `/${pathSegments[i]}`
 
       // Skip the first segment if it's 'admin'
-      if (pathSegments[i] === "admin") continue
+      if (pathSegments[i] === "dashboard") continue
 
       // Find the navigation item for this path
       const navItem = findNavigationItem(adminNavigation, currentPath)

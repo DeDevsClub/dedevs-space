@@ -1,7 +1,7 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DashboardSidebar } from "@/components/navigation/sidebar/dashboard-sidebar";
 // import { SiteHeader } from "@/components/navigation/site-header";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Showcase your expertise in Blockchain and AI development.",
 };
 
-export default function RootLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;

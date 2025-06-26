@@ -43,7 +43,7 @@ export default function AdminDashboardPage() {
               </Link>
             </Button>
             <Button variant="outline" asChild>
-              <Link href="/admin/dashboard/profile">
+              <Link href="/dashboard/profile">
                 <Edit3 className="mr-2 h-4 w-4" />
                 Quick Edit
               </Link>
@@ -70,7 +70,7 @@ export default function AdminDashboardPage() {
           trend="up"
           gradient
           sparkle
-          onClick={() => window.open("/admin/dashboard/analytics/views", "_self")}
+          onClick={() => window.open("/dashboard/analytics/views", "_self")}
         />
         <DashboardCard
           title="Contact Requests"
@@ -79,7 +79,7 @@ export default function AdminDashboardPage() {
           icon={Users}
           trend="up"
           sparkle
-          onClick={() => window.open("/admin/dashboard/analytics/contacts", "_self")}
+          onClick={() => window.open("/dashboard/analytics/contacts", "_self")}
         />
         <DashboardCard
           title="Projects Synced"
@@ -88,7 +88,7 @@ export default function AdminDashboardPage() {
           icon={Activity}
           trend="neutral"
           gradient
-          onClick={() => window.open("/admin/dashboard/projects", "_self")}
+          onClick={() => window.open("/dashboard/projects", "_self")}
         />
         <DashboardCard title="Profile Score" value="94%" change="Excellent!" icon={Award} trend="up" sparkle gradient />
       </div>
@@ -111,7 +111,7 @@ export default function AdminDashboardPage() {
                 <p className="text-sm text-muted-foreground">Show off your expertise</p>
               </div>
               <Button size="sm" asChild>
-                <Link href="/admin/dashboard/skills">
+                <Link href="/dashboard/skills">
                   <Zap className="mr-1 h-3 w-3" />
                   Add
                 </Link>
@@ -124,7 +124,7 @@ export default function AdminDashboardPage() {
                 <p className="text-sm text-muted-foreground">Showcase your knowledge</p>
               </div>
               <Button size="sm" asChild>
-                <Link href="/admin/dashboard/content/articles">
+                <Link href="/dashboard/content/articles">
                   <Edit3 className="mr-1 h-3 w-3" />
                   Write
                 </Link>
@@ -137,7 +137,7 @@ export default function AdminDashboardPage() {
                 <p className="text-sm text-muted-foreground">Make it uniquely yours</p>
               </div>
               <Button size="sm" asChild>
-                <Link href="/admin/dashboard/customize">
+                <Link href="/dashboard/customize">
                   <Sparkles className="mr-1 h-3 w-3" />
                   Style
                 </Link>

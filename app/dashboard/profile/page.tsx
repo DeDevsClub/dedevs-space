@@ -88,8 +88,8 @@ export default function EditProfilePage() {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen w-full bg-background p-2 sm:p-6">
-      <Card className="flex flex-col w-full max-w-screen-lg mx-auto shadow-lg">
+    <div className="space-y-6">
+      <Card className="bg-background">
         <CardHeader className="flex flex-col items-center">
           <CardTitle>Edit Your Profile</CardTitle>
           <CardDescription>Update your personal information and public-facing details.</CardDescription>
@@ -201,6 +201,6 @@ export default function EditProfilePage() {
           </form>
         </CardContent>
       </Card>
-    </div>
+      </div>
   );
 }

@@ -63,7 +63,7 @@ export default function AdminDashboardLayout({
             {/* Fun Welcome Message */}
             <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20">
               <Sparkles className="h-4 w-4 text-primary animate-pulse" />
-              <span className="text-sm font-medium text-primary">Welcome back, Alex! 🚀</span>
+              <span className="text-sm font-medium text-primary">Welcome back, Dev</span>
             </div>
 
             {/* Notifications */}
@@ -82,7 +82,7 @@ export default function AdminDashboardLayout({
                   <Avatar className="h-8 w-8">
                     <AvatarImage src="/placeholder.svg?height=32&width=32" alt="User" />
                     <AvatarFallback className="bg-gradient-to-r from-primary to-secondary text-white">
-                      AJ
+                      Dev Buns
                     </AvatarFallback>
                   </Avatar>
                 </Button>
@@ -90,8 +90,8 @@ export default function AdminDashboardLayout({
               <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                   <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">Alex Johnson</p>
-                    <p className="text-xs leading-none text-muted-foreground">alex.johnson.dev@example.com</p>
+                    <p className="text-sm font-medium leading-none">Dev</p>
+                    <p className="text-xs leading-none text-muted-foreground">you@dedevs.space</p>
                   </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />

@@ -22,7 +22,7 @@ export default function ManageContentPage() {
                 Share your written content from platforms like Medium, Dev.to, or your personal blog.
               </p>
               <Button asChild className="w-full bg-secondary hover:bg-secondary/80 text-secondary-foreground">
-                <Link href="/admin/dashboard/content/articles">Manage Articles</Link>
+                <Link href="/dashboard/content/articles">Manage Articles</Link>
               </Button>
             </CardContent>
           </Card>
@@ -36,7 +36,7 @@ export default function ManageContentPage() {
                 Showcase your video tutorials, talks, or project demos from YouTube.
               </p>
               <Button asChild className="w-full bg-secondary hover:bg-secondary/80 text-secondary-foreground">
-                <Link href="/admin/dashboard/content/youtube">Manage YouTube Videos</Link>
+                <Link href="/dashboard/content/youtube">Manage YouTube Videos</Link>
               </Button>
             </CardContent>
           </Card>

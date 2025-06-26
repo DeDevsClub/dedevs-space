@@ -68,21 +68,21 @@ export default function ManageExperiencePage() {
   }
 
   return (
-    <div className="relative flex flex-col min-h-screen w-full bg-gradient-to-tr from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0] dark:from-[#0f172a] dark:via-[#181c2a] dark:to-[#1e293b] px-4 py-6 sm:px-6 md:px-8 overflow-x-hidden">
+    <div className="relative flex flex-col min-h-screen w-full justify-center items-center bg-gradient-to-tr from-[#f8fafc] via-[#f1f5f9] to-[#e2e8f0] dark:from-[#0f172a] dark:via-[#181c2a] dark:to-[#1e293b] px-4 py-6 sm:px-6 md:px-8 overflow-x-hidden">
       {/* AI/Blockchain Themed Background Shapes */}
       <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-48 bg-gradient-to-r from-blue-400/10 via-cyan-300/5 to-purple-400/10 rounded-full blur-3xl opacity-60" />
-        <div className="absolute bottom-12 right-0 w-72 h-32 bg-gradient-to-tr from-purple-500/10 to-blue-400/5 rounded-full blur-2xl opacity-40" />
-        <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-br from-cyan-400/10 to-blue-500/5 rounded-full blur-2xl opacity-30" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-48 bg-neutral-400/10 rounded-full blur-3xl opacity-60" />
+        <div className="absolute bottom-12 right-0 w-72 h-32 bg-neutral-400/5 rounded-full blur-2xl opacity-40" />
+        <div className="absolute bottom-0 left-0 w-40 h-40 bg-neutral-400/5 rounded-full blur-2xl opacity-30" />
       </div>
       
-      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-gradient-to-r from-blue-600 via-cyan-500 to-purple-600 bg-clip-text text-transparent">
+      <h1 className="text-3xl md:text-4xl font-bold text-center mb-6 bg-neutral-600 bg-clip-text text-transparent">
         Developer Experience
       </h1>
       
-      <Card className="w-full max-w-4xl mx-auto bg-white/90 dark:bg-gray-900/90 shadow-xl backdrop-blur-sm border border-blue-200/50 dark:border-blue-900/30 rounded-xl mb-8 z-10">
-      <CardHeader className="border-b border-blue-100 dark:border-blue-900/30">
-        <CardTitle className="text-2xl text-blue-700 dark:text-blue-300">Add New Experience</CardTitle>
+      <Card className="w-full max-w-4xl mx-auto bg-white/90 dark:bg-gray-900/90 shadow-xl backdrop-blur-sm border border-neutral-200/50 dark:border-neutral-900/30 rounded-xl mb-8 z-10">
+      <CardHeader className="border-b border-neutral-100 dark:border-neutral-900/30">
+        <CardTitle className="text-2xl text-neutral-700 dark:text-neutral-300">Add New Experience</CardTitle>
         <CardDescription className="text-gray-600 dark:text-gray-400">Detail your professional roles and responsibilities in AI and blockchain.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6 py-6">
@@ -94,7 +94,7 @@ export default function ManageExperiencePage() {
                 value={currentExperience.title}
                 onChange={(e) => handleInputChange("title", e.target.value)}
                 placeholder="AI Engineer, Blockchain Developer"
-                className="border-blue-200 dark:border-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-400"
+                className="border-neutral-200 dark:border-neutral-900/40 focus:ring-neutral-500 dark:focus:ring-neutral-400"
                 required
                 aria-required="true"
               />
@@ -106,7 +106,7 @@ export default function ManageExperiencePage() {
                 value={currentExperience.company}
                 onChange={(e) => handleInputChange("company", e.target.value)}
                 placeholder="OpenAI, ChainLabs, DeDevs"
-                className="border-blue-200 dark:border-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-400"
+                className="border-neutral-200 dark:border-neutral-900/40 focus:ring-neutral-500 dark:focus:ring-neutral-400"
                 required
                 aria-required="true"
               />
@@ -121,7 +121,7 @@ export default function ManageExperiencePage() {
                 type="month"
                 value={currentExperience.startDate}
                 onChange={(e) => handleInputChange("startDate", e.target.value)}
-                className="border-blue-200 dark:border-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-400"
+                className="border-neutral-200 dark:border-neutral-900/40 focus:ring-neutral-500 dark:focus:ring-neutral-400"
                 required
                 aria-required="true"
               />
@@ -137,7 +137,7 @@ export default function ManageExperiencePage() {
                 type="month"
                 value={currentExperience.endDate}
                 onChange={(e) => handleInputChange("endDate", e.target.value)}
-                className="border-blue-200 dark:border-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-400"
+                className="border-neutral-200 dark:border-neutral-900/40 focus:ring-neutral-500 dark:focus:ring-neutral-400"
               />
             </div>
           </div>
@@ -150,12 +150,12 @@ export default function ManageExperiencePage() {
               value={currentExperience.description}
               onChange={(e) => handleInputChange("description", e.target.value)}
               placeholder="Describe your responsibilities, achievements, and technologies used..."
-              className="border-blue-200 dark:border-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-400 resize-y min-h-[100px]"
+              className="border-neutral-200 dark:border-neutral-900/40 focus:ring-neutral-500 dark:focus:ring-neutral-400 resize-y min-h-[100px]"
             />
           </div>
           
-          <div className="space-y-3 bg-blue-50/50 dark:bg-blue-900/10 p-4 rounded-lg border border-blue-100 dark:border-blue-900/20">
-            <Label htmlFor="exp-tech-input" className="text-sm font-medium text-gray-700 dark:text-gray-300">Technologies Used</Label>
+          <div className="space-y-3 bg-neutral-50/50 dark:bg-neutral-900/10 p-4 rounded-lg border border-neutral-100 dark:border-neutral-900/20">
+            <Label htmlFor="exp-tech-input" className="text-sm font-medium text-gray-700 dark:text-gray-300">Tech Stack</Label>
             <div className="flex gap-2">
               <Input
                 id="exp-tech-input"
@@ -168,13 +168,13 @@ export default function ManageExperiencePage() {
                   }
                 }}
                 placeholder="React, TypeScript, Web3.js"
-                className="flex-1 border-blue-200 dark:border-blue-900/40 focus:ring-blue-500 dark:focus:ring-blue-400"
+                className="flex-1 border-neutral-200 dark:border-neutral-900/40 focus:ring-neutral-500 dark:focus:ring-neutral-400"
               />
               <Button 
                 type="button" 
                 variant="secondary" 
                 onClick={handleAddTechnology} 
-                className="bg-blue-100 hover:bg-blue-200 dark:bg-blue-900/30 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300"
+                className="bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-900/30 dark:hover:bg-neutral-900/50 text-neutral-700 dark:text-neutral-300"
               >
                 <PlusCircle className="mr-1 h-4 w-4" /> Add
               </Button>
@@ -182,11 +182,11 @@ export default function ManageExperiencePage() {
             <p className="text-xs text-muted-foreground mt-1">Press Enter or comma to add multiple quickly</p>
             
             {currentExperience.technologies && currentExperience.technologies.length > 0 && (
-              <div className="flex flex-wrap gap-2 mt-3 p-2 bg-white/80 dark:bg-gray-800/80 rounded border border-blue-100 dark:border-blue-900/20 min-h-[40px]">
+              <div className="flex flex-wrap gap-2 mt-3 p-2 bg-white/80 dark:bg-gray-800/80 rounded border border-neutral-100 dark:border-neutral-900/20 min-h-[40px]">
                 {currentExperience.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="flex items-center gap-1 px-2.5 py-1.5 text-xs bg-gradient-to-r from-blue-600/90 to-purple-600/90 text-white rounded-full shadow-sm"
+                    className="flex items-center gap-1 px-2.5 py-1.5 text-xs bg-neutral-600/90 text-white rounded-full shadow-sm"
                   >
                     {tech}
                     <button
@@ -206,7 +206,7 @@ export default function ManageExperiencePage() {
           <div className="pt-2 flex justify-end">
             <Button 
               onClick={handleAddExperience} 
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-medium px-6 py-2 h-auto shadow-md hover:shadow-lg transition-all"
+              className="bg-neutral-700 text-white font-medium px-6 py-2 h-auto shadow-md hover:shadow-lg transition-all"
               disabled={!currentExperience.title || !currentExperience.company || !currentExperience.startDate}
             >
               <PlusCircle className="mr-2 h-5 w-5" /> Add Experience
@@ -215,15 +215,15 @@ export default function ManageExperiencePage() {
         </CardContent>
       </Card>
 
-      <Card className="w-full max-w-4xl mx-auto bg-white/90 dark:bg-gray-900/90 shadow-xl backdrop-blur-sm border border-blue-200/50 dark:border-blue-900/30 rounded-xl mb-6 z-10">
-        <CardHeader className="border-b border-blue-100 dark:border-blue-900/30">
-          <CardTitle className="text-2xl text-blue-700 dark:text-blue-300">Experience Timeline</CardTitle>
+      <Card className="w-full max-w-4xl mx-auto bg-white/90 dark:bg-gray-900/90 shadow-xl backdrop-blur-sm border border-neutral-200/50 dark:border-neutral-900/30 rounded-xl mb-6 z-10">
+        <CardHeader className="border-b border-neutral-100 dark:border-neutral-900/30">
+          <CardTitle className="text-2xl text-neutral-700 dark:text-neutral-300">Experience Timeline</CardTitle>
           <CardDescription className="text-gray-600 dark:text-gray-400">Your professional journey in blockchain and AI development.</CardDescription>
         </CardHeader>
         <CardContent className="py-8">
           {experienceList.length === 0 ? (
-            <div className="flex flex-col items-center justify-center text-center p-8 bg-blue-50/50 dark:bg-blue-900/10 rounded-lg border border-dashed border-blue-200 dark:border-blue-900/30">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-blue-400 dark:text-blue-500 mb-3">
+            <div className="flex flex-col items-center justify-center text-center p-8 bg-neutral-50/50 dark:bg-neutral-900/10 rounded-lg border border-dashed border-neutral-200 dark:border-neutral-900/30">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-neutral-400 dark:text-neutral-500 mb-3">
                 <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
                 <path d="M12 8V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -234,7 +234,7 @@ export default function ManageExperiencePage() {
           ) : (
             <div className="relative">
               {/* Timeline track */}
-              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-cyan-400 to-purple-500 transform md:-translate-x-1/2" aria-hidden="true" />
+              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-neutral-400 transform md:-translate-x-1/2" aria-hidden="true" />
               
               <ul className="space-y-12">
                 {experienceList.map((exp, i) => (
@@ -242,15 +242,15 @@ export default function ManageExperiencePage() {
                     <div className={`flex flex-col md:flex-row gap-6 ${i % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
                       {/* Timeline node */}
                       <div className="absolute left-0 md:left-1/2 top-0 transform -translate-x-1/2 md:-translate-x-1/2">
-                        <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 border-2 border-white dark:border-gray-900 shadow-md" />
+                        <div className="w-5 h-5 rounded-full bg-neutral-600 border-2 border-white dark:border-gray-900 shadow-md" />
                       </div>
                       
                       {/* Content card */}
                       <div className={`pl-8 md:pl-0 ${i % 2 === 0 ? 'md:pr-12 md:w-1/2' : 'md:pl-12 md:w-1/2 md:ml-auto'}`}>
-                        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg border border-blue-100 dark:border-blue-900/30 p-5 hover:shadow-lg transition-shadow">
+                        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg border border-neutral-100 dark:border-neutral-900/30 p-5 hover:shadow-lg transition-shadow">
                           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                             <div>
-                              <h4 className="text-lg font-bold text-blue-700 dark:text-blue-300">
+                              <h4 className="text-lg font-bold text-neutral-700 dark:text-neutral-300">
                                 {exp.title}
                               </h4>
                               <p className="text-base font-medium text-gray-800 dark:text-gray-200">
@@ -258,7 +258,7 @@ export default function ManageExperiencePage() {
                               </p>
                             </div>
                             <div className="flex items-center gap-2">
-                              <span className="text-sm font-mono bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-2.5 py-1 rounded whitespace-nowrap">
+                              <span className="text-sm font-mono bg-neutral-50 dark:bg-neutral-900/30 text-neutral-600 dark:text-neutral-300 px-2.5 py-1 rounded whitespace-nowrap">
                                 {exp.startDate} – {exp.endDate || "Present"}
                               </span>
                               <Button
@@ -280,7 +280,7 @@ export default function ManageExperiencePage() {
                               {exp.technologies.map((tech) => (
                                 <span 
                                   key={tech} 
-                                  className="px-2.5 py-1 text-xs font-medium bg-gradient-to-r from-blue-600/90 to-purple-600/90 text-white rounded-full"
+                                  className="px-2.5 py-1 text-xs font-medium bg-neutral-600/90 text-white rounded-full"
                                 >
                                   {tech}
                                 </span>
