@@ -215,48 +215,85 @@ export default function ManageExperiencePage() {
         </CardContent>
       </Card>
 
-      <Card className="w-full max-w-[calc(100%-8rem)] shadow-lg rounded-lg border-2 border-primary shadow-blue-500 radius-xl">
-        <CardHeader>
-          <CardTitle>Current Experience</CardTitle>
+      <Card className="w-full max-w-4xl mx-auto bg-white/90 dark:bg-gray-900/90 shadow-xl backdrop-blur-sm border border-blue-200/50 dark:border-blue-900/30 rounded-xl mb-6 z-10">
+        <CardHeader className="border-b border-blue-100 dark:border-blue-900/30">
+          <CardTitle className="text-2xl text-blue-700 dark:text-blue-300">Experience Timeline</CardTitle>
+          <CardDescription className="text-gray-600 dark:text-gray-400">Your professional journey in blockchain and AI development.</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="py-8">
           {experienceList.length === 0 ? (
-            <p className="text-muted-foreground">No experience added yet.</p>
+            <div className="flex flex-col items-center justify-center text-center p-8 bg-blue-50/50 dark:bg-blue-900/10 rounded-lg border border-dashed border-blue-200 dark:border-blue-900/30">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" className="text-blue-400 dark:text-blue-500 mb-3">
+                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                <path d="M12 8V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 12H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <p className="text-muted-foreground font-medium">No experience added yet</p>
+              <p className="text-sm text-muted-foreground mt-1">Add your first experience using the form above</p>
+            </div>
           ) : (
-            <ul className="space-y-4">
-              {experienceList.map((exp) => (
-                <li key={exp.id} className="p-4 border rounded-md">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-semibold">
-                        {exp.title} at {exp.company}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {exp.startDate} - {exp.endDate || "Present"}
-                      </p>
+            <div className="relative">
+              {/* Timeline track */}
+              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-400 via-cyan-400 to-purple-500 transform md:-translate-x-1/2" aria-hidden="true" />
+              
+              <ul className="space-y-12">
+                {experienceList.map((exp, i) => (
+                  <li key={exp.id} className="relative">
+                    <div className={`flex flex-col md:flex-row gap-6 ${i % 2 === 0 ? '' : 'md:flex-row-reverse'}`}>
+                      {/* Timeline node */}
+                      <div className="absolute left-0 md:left-1/2 top-0 transform -translate-x-1/2 md:-translate-x-1/2">
+                        <div className="w-5 h-5 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 border-2 border-white dark:border-gray-900 shadow-md" />
+                      </div>
+                      
+                      {/* Content card */}
+                      <div className={`pl-8 md:pl-0 ${i % 2 === 0 ? 'md:pr-12 md:w-1/2' : 'md:pl-12 md:w-1/2 md:ml-auto'}`}>
+                        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg border border-blue-100 dark:border-blue-900/30 p-5 hover:shadow-lg transition-shadow">
+                          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                            <div>
+                              <h4 className="text-lg font-bold text-blue-700 dark:text-blue-300">
+                                {exp.title}
+                              </h4>
+                              <p className="text-base font-medium text-gray-800 dark:text-gray-200">
+                                {exp.company}
+                              </p>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="text-sm font-mono bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 px-2.5 py-1 rounded whitespace-nowrap">
+                                {exp.startDate} – {exp.endDate || "Present"}
+                              </span>
+                              <Button
+                                variant="ghost"
+                                size="icon"
+                                onClick={() => handleRemoveExperience(exp.id)}
+                                aria-label="Remove experience"
+                                className="h-8 w-8 rounded-full hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 dark:hover:text-red-400"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </Button>
+                            </div>
+                          </div>
+                          
+                          <p className="text-gray-600 dark:text-gray-300 my-3 whitespace-pre-wrap">{exp.description}</p>
+                          
+                          {exp.technologies && exp.technologies.length > 0 && (
+                            <div className="flex flex-wrap gap-1.5 mt-3">
+                              {exp.technologies.map((tech) => (
+                                <span 
+                                  key={tech} 
+                                  className="px-2.5 py-1 text-xs font-medium bg-gradient-to-r from-blue-600/90 to-purple-600/90 text-white rounded-full"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </div>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => handleRemoveExperience(exp.id)}
-                      aria-label="Remove experience"
-                    >
-                      <Trash2 className="h-4 w-4 text-destructive" />
-                    </Button>
-                  </div>
-                  <p className="text-sm mt-2">{exp.description}</p>
-                  {exp.technologies && exp.technologies.length > 0 && (
-                    <div className="flex flex-wrap gap-1 mt-2">
-                      {exp.technologies.map((tech) => (
-                        <span key={tech} className="px-1.5 py-0.5 text-xs bg-muted text-muted-foreground rounded-full">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
         </CardContent>
       </Card>
