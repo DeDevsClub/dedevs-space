@@ -88,109 +88,119 @@ export default function EditProfilePage() {
   }
 
   return (
-    <Card className="flex flex-col items-center justify-center sm:container max-h-dvh h-dvh w-full overflow-y-auto">
-      <CardHeader >
-        <CardTitle>Edit Your Profile</CardTitle>
-        <CardDescription>Update your personal information and public-facing details.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form action={handleSubmit} className="space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="md:col-span-1">
-              <h3 className="text-lg font-medium mb-2">Avatar</h3>
-              <ImageUploader
-                onUploadComplete={handleAvatarUploadComplete}
-                initialImageUrl={avatarUrl}
-                label="Profile Picture"
-              />
-              <Input type="hidden" name="avatarUrl" value={avatarUrl} />
-            </div>
-            <div className="md:col-span-2 space-y-6">
-              <div>
-                <Label htmlFor="name">Full Name</Label>
-                <Input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
-              </div>
-              <div>
-                <Label htmlFor="username">Username (URL Slug)</Label>
-                <Input
-                  id="username"
-                  name="username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  required
+    <div className="flex flex-col justify-center items-center min-h-screen w-full bg-background p-2 sm:p-6">
+      <Card className="flex flex-col w-full max-w-screen-lg mx-auto shadow-lg">
+        <CardHeader className="flex flex-col items-center">
+          <CardTitle>Edit Your Profile</CardTitle>
+          <CardDescription>Update your personal information and public-facing details.</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col items-center">
+          <form action={handleSubmit} className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="md:col-span-1 flex flex-col items-center md:items-start">
+                <h3 className="text-lg font-medium mb-2">Avatar</h3>
+                <ImageUploader
+                  onUploadComplete={handleAvatarUploadComplete}
+                  initialImageUrl={avatarUrl}
+                  label="Profile Picture"
                 />
-                <p className="text-sm text-muted-foreground mt-1">
-                  Your profile will be at: /<span className="font-medium">{username || "{username}"}</span>
-                </p>
+                <Input type="hidden" name="avatarUrl" value={avatarUrl} />
+              </div>
+              <div className="md:col-span-2 space-y-6">
+                <div>
+                  <Label htmlFor="name">Full Name</Label>
+                  <Input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required className="w-full" />
+                </div>
+                <div>
+                  <Label htmlFor="username">Username (URL Slug)</Label>
+                  <Input
+                    id="username"
+                    name="username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    className="w-full"
+                  />
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Your profile will be at: /<span className="font-medium">{username || "{username}"}</span>
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="space-y-6">
-            <div>
-              <Label htmlFor="tagline">Tagline / Headline</Label>
-              <Input id="tagline" name="tagline" value={tagline} onChange={(e) => setTagline(e.target.value)} />
+            <div className="space-y-6">
+              <div>
+                <Label htmlFor="tagline">Tagline / Headline</Label>
+                <Input id="tagline" name="tagline" value={tagline} onChange={(e) => setTagline(e.target.value)} className="w-full" />
+              </div>
+              <div>
+                <Label htmlFor="email">Contact Email</Label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <Label htmlFor="bio">Bio / About Me</Label>
+                <Textarea id="bio" name="bio" rows={5} value={bio} onChange={(e) => setBio(e.target.value)} className="w-full" />
+              </div>
             </div>
-            <div>
-              <Label htmlFor="email">Contact Email</Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="bio">Bio / About Me</Label>
-              <Textarea id="bio" name="bio" rows={5} value={bio} onChange={(e) => setBio(e.target.value)} />
-            </div>
-          </div>
 
-          <div>
-            <h3 className="text-lg font-medium mb-2">Social Media Links</h3>
-            {socialLinks.map((link, index) => (
-              <div key={link.id} className="flex items-end gap-2 mb-3 p-3 border rounded-md">
-                <div className="flex-grow">
-                  <Label htmlFor={`social-platform-${index}`}>Platform</Label>
-                  <Input
-                    id={`social-platform-${index}`}
-                    value={link.platform}
-                    onChange={(e) => handleSocialLinkChange(index, "platform", e.target.value)}
-                    placeholder="e.g., GitHub, LinkedIn"
-                  />
-                </div>
-                <div className="flex-grow">
-                  <Label htmlFor={`social-url-${index}`}>URL</Label>
-                  <Input
-                    id={`social-url-${index}`}
-                    value={link.url}
-                    onChange={(e) => handleSocialLinkChange(index, "url", e.target.value)}
-                    placeholder="https://..."
-                  />
-                </div>
-                <Button
-                  type="button"
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => handleRemoveSocialLink(index)}
-                  aria-label="Remove social link"
+            <div>
+              <h3 className="text-lg font-medium mb-2">Social Media Links</h3>
+              {socialLinks.map((link, index) => (
+                <div
+                  key={link.id}
+                  className="flex flex-col sm:flex-row items-stretch sm:items-end gap-2 mb-3 p-3 border rounded-md"
                 >
-                  <Trash2 className="h-4 w-4 text-destructive" />
-                </Button>
-              </div>
-            ))}
-            <Button type="button" variant="outline" onClick={handleAddSocialLink} className="mt-2">
-              <PlusCircle className="mr-2 h-4 w-4" /> Add Social Link
-            </Button>
-          </div>
+                  <div className="flex-1">
+                    <Label htmlFor={`social-platform-${index}`}>Platform</Label>
+                    <Input
+                      id={`social-platform-${index}`}
+                      value={link.platform}
+                      onChange={(e) => handleSocialLinkChange(index, "platform", e.target.value)}
+                      placeholder="e.g., GitHub, LinkedIn"
+                      className="w-full"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <Label htmlFor={`social-url-${index}`}>URL</Label>
+                    <Input
+                      id={`social-url-${index}`}
+                      value={link.url}
+                      onChange={(e) => handleSocialLinkChange(index, "url", e.target.value)}
+                      placeholder="https://..."
+                      className="w-full"
+                    />
+                  </div>
+                  <Button
+                    type="button"
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => handleRemoveSocialLink(index)}
+                    aria-label="Remove social link"
+                    className="self-center sm:self-end"
+                  >
+                    <Trash2 className="h-4 w-4 text-destructive" />
+                  </Button>
+                </div>
+              ))}
+              <Button type="button" variant="outline" onClick={handleAddSocialLink} className="mt-2 w-full sm:w-auto">
+                <PlusCircle className="mr-2 h-4 w-4" /> Add Social Link
+              </Button>
+            </div>
 
-          <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Save Profile
-          </Button>
-        </form>
-      </CardContent>
-    </Card>
-  )
+            <Button type="submit" className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground">
+              Save Profile
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
 }

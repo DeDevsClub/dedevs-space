@@ -39,7 +39,7 @@ export default function AdminDashboardPage() {
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <Link href={`/profile/${username}`} target="_blank">
                 <Rocket className="mr-2 h-4 w-4" />
-                View Profile
+                Profile  
               </Link>
             </Button>
             <Button variant="outline" asChild>

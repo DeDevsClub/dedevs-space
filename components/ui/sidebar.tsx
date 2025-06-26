@@ -38,7 +38,7 @@ export function SidebarToggleButton({ className }: { className?: string }) {
       aria-label={open ? "Close sidebar" : "Open sidebar"}
       className={clsx(  
         `fixed top-0 left-0 sm:top-4 sm:left-4 z-50 p-1.5 w-screen sm:w-12 max-w-full justify-center items-center bg-neutral-200/20 dark:bg-neutral-800/20
-        hover:shadow-lg hover:border hover:border-blue-500 hover:bg-blue-500 dark:hover:border-blue-900 dark:hover:bg-blue-900 cursor-pointer
+        hover:shadow-lg hover:border hover:border-neutral-500 hover:bg-neutral-500 dark:hover:border-neutral-900 dark:hover:bg-neutral-900 cursor-pointer
         sm:shadow transition-all 
         rounded-lg
         `,
