@@ -1,0 +1,52 @@
+import { notFound } from "next/navigation"
+import SharingProfile from "@/components/sharing/sharing-profile"
+import { getMockSharingProfile } from "@/lib/sharing"
+import type { Metadata } from "next"
+
+interface ProfilePageProps {
+  params: { username: string }
+}
+
+export async function generateMetadata({ params }: ProfilePageProps): Promise<Metadata> {
+  const profile = getMockSharingProfile(params.username)
+
+  if (!profile) {
+    return {
+      title: "Profile Not Found",
+    }
+  }
+
+  return {
+    title: `${profile.displayName} (@${profile.username}) - Developer Profile`,
+    description: profile.bio,
+    openGraph: {
+      title: `${profile.displayName} - Developer Profile`,
+      description: profile.bio,
+      images: [{ url: profile.avatarUrl }],
+      type: "profile",
+      username: profile.username,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${profile.displayName} - Developer Profile`,
+      description: profile.bio,
+      images: [profile.avatarUrl],
+    },
+  }
+}
+
+export default function ProfilePage({ params }: ProfilePageProps) {
+  const profile = getMockSharingProfile(params.username)
+
+  if (!profile) {
+    notFound()
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto py-8">
+        <SharingProfile profile={profile} />
+      </div>
+    </div>
+  )
+}
