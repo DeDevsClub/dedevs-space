@@ -1,22 +1,15 @@
 "use client";
 
 import { SiteHeader } from "@/components/navigation/site-header";
-import { Sidebar } from "@/components/ui/sidebar";
+import { Sidebar, SidebarProvider } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
 import { Sparkles, ArrowRight, Users, Code, Star } from "lucide-react";
 import Link from "next/link";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { DashboardSidebar } from "@/components/navigation/sidebar/dashboard-sidebar";
 
 export default function Page() {
   return (
-    <SidebarProvider>
-      <DashboardSidebar />
-      <Sidebar>
-        <SiteHeader />
-        <div className="flex w-screen min-w-screen sm:max-w-dvw min-h-screen flex-col bg-gradient-to-tr from-indigo-950 via-background to-blue-900">
-          <div className="flex flex-1">
-            <main className="flex flex-1 items-center justify-center px-4">
+      <div className="flex w-screen min-w-screen sm:max-w-dvw min-h-screen flex-col bg-gradient-to-tr from-indigo-950 via-background to-blue-900">
+          <main className="flex flex-1 items-center justify-center px-4">
               <section className="w-full max-w-3xl mx-auto flex flex-col items-center text-center gap-8 py-16">
                 {/* Hero Section */}
                 <div className="relative flex flex-col items-center gap-4 animate-fade-in">
@@ -36,7 +29,7 @@ export default function Page() {
                     the future together.
                   </p>
                   <div className="flex flex-wrap gap-4 justify-center mt-4">
-                    <Link href="/portfolios">
+                    <Link href="/dashboard">
                       <Button
                         size="lg"
                         className="group transition-all duration-200"
@@ -78,16 +71,11 @@ export default function Page() {
                 </div>
               </section>
             </main>
+            <AnimatedBackground />
           </div>
-          {/* Fun, subtle animated background shapes */}
-        </div>
-        <AnimatedBackground />
-      </Sidebar>
-    </SidebarProvider>
   );
 }
 
-// Feature Card component
 function FeatureCard({
   icon,
   title,
@@ -106,7 +94,6 @@ function FeatureCard({
   );
 }
 
-// Animated Background component (decorative)
 function AnimatedBackground() {
   return (
     <>

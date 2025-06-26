@@ -32,16 +32,20 @@ export function useSidebar() {
 // Sidebar Toggle Button (can be placed anywhere, e.g., in SiteHeader)
 export function SidebarToggleButton({ className }: { className?: string }) {
   const { toggle, open } = useSidebar();
+  // "fixed top-4 left-4 z-50 p-2 rounded-full bg-background shadow hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary",
   return (
     <button
       aria-label={open ? "Close sidebar" : "Open sidebar"}
       className={clsx(
-        "fixed top-4 left-4 z-50 p-2 rounded-full bg-background shadow hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary",
+        `fixed top-0 left-0 sm:top-4 sm:left-4 z-50 p-1.5 w-screen sm:w-12 max-w-full justify-center items-center bg-blue-200/20 opacity-70 sm:opacity-100 
+        sm:shadow hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary
+        rounded-lg
+        `,
         className
       )}
       onClick={toggle}
     >
-      {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+      {open ? <X className="h-6 w-full" /> : <Menu className="h-6 w-full" />}
     </button>
   );
 }
@@ -94,7 +98,8 @@ export function Sidebar({ children }: { children?: React.ReactNode }) {
         aria-label="Sidebar"
       >
         <div className="flex-1 overflow-y-auto p-6 space-y-4">
-          {children /* Place your nav/menu here */}
+          {/* NavMenu */}
+          {children}
         </div>
       </aside>
     </>

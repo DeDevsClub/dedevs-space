@@ -79,7 +79,7 @@ export default function SharingProfileComponent({ profile, isOwner = false, clas
   }
 
   return (
-    <div className={cn("max-w-6xl mx-auto space-y-6", className)}>
+    <div className={cn("max-w-dvw max-h-dvh mx-auto space-y-6", className)}>
       {/* Profile Header */}
       <Card className="relative overflow-hidden">
         {/* Banner */}

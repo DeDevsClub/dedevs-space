@@ -2,7 +2,6 @@ import { notFound } from "next/navigation"
 import SharingProfile from "@/components/sharing/sharing-profile"
 import { getMockSharingProfile } from "@/lib/sharing"
 import type { Metadata } from "next"
-import { SiteHeader } from "@/components/navigation/site-header"
 
 interface ProfilePageProps {
   params: { username: string }
@@ -44,11 +43,12 @@ export default async function ProfilePage({ params }: ProfilePageProps) {
   }
 
   return (
-    <div className="min-h-screen min-w-screen bg-background">
-      <div className="container mx-auto py-6 w-full">
-        <SiteHeader />
+    <div className="flex flex-1 flex-col w-full h-full mx-auto bg-neutral-600 dark:bg-neutral-950">
+    <div className="@container/main flex flex-1 flex-col gap-2">
+      <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
         <SharingProfile profile={profile} />
       </div>
     </div>
+  </div>
   )
 }

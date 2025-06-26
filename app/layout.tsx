@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DashboardSidebar } from "@/components/navigation/sidebar/dashboard-sidebar";
-import { SiteHeader } from "@/components/navigation/site-header";
+// import { SiteHeader } from "@/components/navigation/site-header";
 import { SidebarProvider, Sidebar, SidebarToggleButton } from "@/components/ui/sidebar";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +24,9 @@ export default function RootLayout({
         <SidebarProvider>
           <SidebarToggleButton />
           <Sidebar>
-            <DashboardSidebar />
+            <DashboardSidebar username="bunsdev" />
           </Sidebar>
-          <SiteHeader />
+          {/* <SiteHeader /> */}
           <main>{children}</main>
         </SidebarProvider>
       </body>

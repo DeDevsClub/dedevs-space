@@ -7,8 +7,10 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { Activity, Users, Eye, Edit3, Zap, Target, Award, Rocket, Heart, Coffee, Sparkles } from "lucide-react"
+import { useState } from "react"
 
 export default function AdminDashboardPage() {
+  const [username, setUsername] = useState("bunsdev")
   return (
     <div className="space-y-6">
       {/* Welcome Section */}
@@ -35,7 +37,7 @@ export default function AdminDashboardPage() {
           </div>
           <div className="flex gap-3 mt-4">
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Link href="/bunsdev" target="_blank">
+              <Link href={`/profile/${username}`} target="_blank">
                 <Rocket className="mr-2 h-4 w-4" />
                 View Profile
               </Link>
