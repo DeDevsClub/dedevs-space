@@ -36,9 +36,10 @@ export function SidebarToggleButton({ className }: { className?: string }) {
   return (
     <button
       aria-label={open ? "Close sidebar" : "Open sidebar"}
-      className={clsx(
-        `fixed top-0 left-0 sm:top-4 sm:left-4 z-50 p-1.5 w-screen sm:w-12 max-w-full justify-center items-center bg-blue-200/20 opacity-70 sm:opacity-100 
-        sm:shadow hover:bg-accent transition-colors focus:outline-none focus:ring-2 focus:ring-primary
+      className={clsx(  
+        `fixed top-0 left-0 sm:top-4 sm:left-4 z-50 p-1.5 w-screen sm:w-12 max-w-full justify-center items-center bg-neutral-200/20 dark:bg-neutral-800/20
+        hover:shadow-lg hover:border hover:border-blue-500 hover:bg-blue-500 dark:hover:border-blue-900 dark:hover:bg-blue-900 cursor-pointer
+        sm:shadow transition-all 
         rounded-lg
         `,
         className
@@ -50,10 +51,25 @@ export function SidebarToggleButton({ className }: { className?: string }) {
   );
 }
 
+// Hook to detect mobile (below sm)
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    function handleResize() {
+      setIsMobile(window.innerWidth < 640); // Tailwind 'sm' breakpoint
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return isMobile;
+}
+
 // Sidebar Drawer
 export function Sidebar({ children }: { children?: React.ReactNode }) {
   const { open, close } = useSidebar();
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   // Close on outside click
   useEffect(() => {
@@ -80,28 +96,53 @@ export function Sidebar({ children }: { children?: React.ReactNode }) {
   return (
     <>
       {/* Overlay */}
-      <div
-        className={clsx(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
-          open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        )}
-        aria-hidden={!open}
-      />
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm transition-opacity"
+          aria-hidden="true"
+          onClick={close}
+        />
+      )}
       {/* Sidebar Drawer */}
-      <aside
-        ref={sidebarRef}
-        className={clsx(
-          "fixed top-0 left-0 z-50 h-full w-72 max-w-[90vw] bg-background shadow-lg border-r border-border transition-transform duration-300 flex flex-col",
-          open ? "translate-x-0" : "-translate-x-full"
-        )}
-        tabIndex={-1}
-        aria-label="Sidebar"
-      >
-        <div className="flex-1 overflow-y-auto p-6 space-y-4">
-          {/* NavMenu */}
-          {children}
-        </div>
-      </aside>
+      {isMobile ? (
+        <aside
+          ref={sidebarRef}
+          className={clsx(
+            "fixed z-50 bg-background shadow-lg transition-transform duration-300 ease-in-out w-full left-0",
+            open ? "translate-y-0" : "-translate-y-full",
+            "top-0 h-[90vh] rounded-b-2xl border-b border-border",
+            open ? "pointer-events-auto" : "pointer-events-none"
+          )}
+          style={{
+            transitionProperty: "transform, box-shadow, opacity",
+          }}
+          aria-label="Sidebar"
+        >
+          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            {/* NavMenu */}
+            {children}
+          </div>
+        </aside>
+      ) : (
+        <aside
+          ref={sidebarRef}
+          className={clsx(
+            "fixed z-50 bg-background shadow-lg transition-transform duration-300 ease-in-out",
+            open ? "translate-x-0" : "-translate-x-full",
+            "top-0 left-0 h-full w-72 sm:w-80 sm:rounded-r-2xl sm:border-r sm:border-border",
+            open ? "pointer-events-auto" : "pointer-events-none"
+          )}
+          style={{
+            transitionProperty: "transform, box-shadow, opacity",
+          }}
+          aria-label="Sidebar"
+        >
+          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+            {/* NavMenu */}
+            {children}
+          </div>
+        </aside>
+      )}
     </>
   );
 }
