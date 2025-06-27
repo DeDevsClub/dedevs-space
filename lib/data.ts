@@ -60,7 +60,7 @@ export const mockDeveloperProfile: DeveloperProfile = {
       id: "p2",
       name: "AI Art Generator",
       description: "A web application that uses GANs to generate unique digital art based on user prompts.",
-      html_url: "https://github.com/bunsdev/ai-art-generator",
+      html_url: "https://github.com/bunsdev",
       stargazers_count: 200,
       forks_count: 45,
       language: "Python",
@@ -71,7 +71,7 @@ export const mockDeveloperProfile: DeveloperProfile = {
       id: "p3",
       name: "NFT Marketplace",
       description: "A feature-rich NFT marketplace with auction capabilities and royalties, built on Polygon.",
-      html_url: "https://github.com/bunsdev/nft-marketplace",
+      html_url: "https://github.com/bunsdev",
       stargazers_count: 120,
       forks_count: 25,
       language: "Solidity",
@@ -117,7 +117,7 @@ export const mockDeveloperProfile: DeveloperProfile = {
   ],
   socialLinks: [
     { id: "sl1", platform: "GitHub", url: "https://github.com/bunsdev", icon: Github },
-    { id: "sl2", platform: "LinkedIn", url: "https://linkedin.com/in/bunsdev", icon: Linkedin },
+    { id: "sl2", platform: "LinkedIn", url: "https://linkedin.com/in/buns", icon: Linkedin },
     { id: "sl3", platform: "Twitter", url: "https://x.com/bunsdev", icon: Twitter },
     { id: "sl4", platform: "YouTube", url: "https://www.youtube.com/@0xbuns", icon: Youtube },
   ],
@@ -128,9 +128,12 @@ export const mockDeveloperProfile: DeveloperProfile = {
 }
 
 // Function to get profile by username (mock)
-export async function getDeveloperProfileByUsername(username: string): Promise<DeveloperProfile | null> {
-  if (username === mockDeveloperProfile.username) {
+export async function getDeveloperProfileByUsername(
+username?: string
+): Promise<DeveloperProfile | null> {
+    username && console.log({ username })
+  // if (username === mockDeveloperProfile.username) {
     return mockDeveloperProfile
-  }
-  return null
+  // }
+  // return null
 }
