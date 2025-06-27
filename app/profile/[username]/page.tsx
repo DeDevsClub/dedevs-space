@@ -3,14 +3,14 @@ import SharingProfile from "@/components/sharing/sharing-profile";
 import { getMockSharingProfile } from "@/lib/sharing";
 import type { Metadata } from "next";
 
-interface ProfilePageProps {
-  params: { username: string };
-}
+// interface ProfilePageProps {
+  // params: { username: string };
+// }
 
-export async function generateMetadata({
-  params,
-}: ProfilePageProps): Promise<Metadata> {
-  const profile = await getMockSharingProfile(params?.username);
+export async function generateMetadata(): Promise<Metadata> {
+  const profile = await getMockSharingProfile(
+// params?.username
+);
 
   if (!profile) {
     return {
