@@ -2,14 +2,14 @@ import type { DeveloperProfile } from "@/lib/types"
 import developers from "@/data/developers.json"
 import type { Metadata } from "next"
 
-export function getDeveloperProfileByUsername(username: string): DeveloperProfile | null {
-    const dev = (developers as DeveloperProfile[]).find(dev => dev.username === username)
+export function getDeveloperProfileByUsername(): DeveloperProfile | null {
+    const dev = (developers as DeveloperProfile[]).find(dev => dev.username === "bunsdev")
     return dev || null
 }
 
 
-export async function generateMetadata({ params }: { params: { username: string } }): Promise<Metadata> {
-  const profile = await getDeveloperProfileByUsername(params.username)
+export async function generateMetadata({ params }: { params: { username?: string } }): Promise<Metadata> {
+  const profile = await getDeveloperProfileByUsername()
   if (!profile) {
     return { title: "Profile Not Found" }
   }
