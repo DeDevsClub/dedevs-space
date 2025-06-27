@@ -161,8 +161,9 @@ export function getShareUrl(profileId: string, platform: string): string {
 // Mock data
 export function getMockSharingProfile(userId: string): SharingProfile {
   return {
-    id: `profile-${userId}`,
-    userId,
+    // id: `profile-${userId}`,
+    id: `profile-bunsdev`,
+    userId: bunsdev
     username: "bunsdev",
     displayName: "B. Enchantress",
     bio: "Full-stack developer passionate about blockchain and AI. Always learning, always building! 🚀",
