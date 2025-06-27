@@ -163,7 +163,7 @@ export function getMockSharingProfile(userId: string): SharingProfile {
   return {
     // id: `profile-${userId}`,
     id: `profile-bunsdev`,
-    userId: bunsdev
+    userId: "bunsdev",
     username: "bunsdev",
     displayName: "B. Enchantress",
     bio: "Full-stack developer passionate about blockchain and AI. Always learning, always building! 🚀",
